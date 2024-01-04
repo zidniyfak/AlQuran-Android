@@ -19,6 +19,8 @@ import kotlinx.android.synthetic.main.fragment_jadwal_sholat.*
 import org.json.JSONException
 import org.json.JSONObject
 import java.text.SimpleDateFormat
+import java.time.Month
+import java.time.Year
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -109,16 +111,26 @@ class FragmentJadwalSholat : BottomSheetDialogFragment() {
         try {
             progressDialog.show()
             val idKota = id.toString()
-            val current = SimpleDateFormat("yyyy-MM-dd")
-            val tanggal = current.format(Date())
-            val url = "https://api.banghasan.com/sholat/format/json/jadwal/kota/$idKota/tanggal/$tanggal"
+            val current = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
+//            val tanggal = current.format(Date())
+//            val tahun = current.format(Year())
+//            val bulan = current.format(Month())
+//            val url = "https://api.banghasan.com/sholat/format/json/jadwal/kota/$idKota/tanggal/$tanggal"
+            val calendar = Calendar.getInstance()
+            calendar.time = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).parse(current) ?: Date()
+
+            val tahun = calendar.get(Calendar.YEAR)
+            val bulan = calendar.get(Calendar.MONTH) + 1
+            val tanggal = calendar.get(Calendar.DAY_OF_MONTH)
+
+            val url = "https://api.myquran.com/v2/sholat/jadwal/$idKota/$tahun/$bulan/$tanggal"
             val task = ClientAsyncTask(this, object : ClientAsyncTask.OnPostExecuteListener {
                 override fun onPostExecute(result: String) {
                     try {
                         progressDialog.dismiss()
                         val jsonObject = JSONObject(result)
-                        val strJadwal = jsonObject.getJSONObject("jadwal")
-                        val strData = strJadwal.getJSONObject("data")
+                        val strJadwal = jsonObject.getJSONObject("data")
+                        val strData = strJadwal.getJSONObject("jadwal")
 
                         tvSubuh.text = strData.getString("subuh")
                         tvDzuhur.text = strData.getString("dzuhur")
@@ -139,19 +151,20 @@ class FragmentJadwalSholat : BottomSheetDialogFragment() {
     private fun getDataKota() {
         try {
             progressDialog.show()
-            val url = "https://api.banghasan.com/sholat/format/json/kota"
+//            val url = "https://api.banghasan.com/sholat/format/json/kota"
+            val url = "https://api.myquran.com/v2/sholat/kota/semua"
             val task = ClientAsyncTask(this, object : ClientAsyncTask.OnPostExecuteListener {
                 override fun onPostExecute(result: String) {
                     try {
                         progressDialog.dismiss()
                         val jsonObject = JSONObject(result)
-                        val jsonArray = jsonObject.getJSONArray("kota")
+                        val jsonArray = jsonObject.getJSONArray("data")
                         var daftarKota: DaftarKota?
                         for (i in 0 until jsonArray.length()) {
                             val obj = jsonArray.getJSONObject(i)
                             daftarKota = DaftarKota()
                             daftarKota.id = obj.getInt("id")
-                            daftarKota.nama = obj.getString("nama")
+                            daftarKota.lokasi= obj.getString("lokasi")
                             listDaftarKota.add(daftarKota)
                         }
                         daftarKotaAdapter.notifyDataSetChanged()
