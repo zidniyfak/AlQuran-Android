@@ -5,23 +5,22 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import com.example.alqurankuv2.R
-import kotlinx.android.synthetic.main.activity_landing.*
 
-class LandingActivity : AppCompatActivity() {
+class RegisterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_landing)
+        setContentView(R.layout.activity_register)
 
-        val button: Button = findViewById(R.id.btn_login)
-        val buttonRegister: Button = findViewById(R.id.btn_register)
+        val button2: Button = findViewById(R.id.buttonLogin1)
+        val buttonRegister2: Button = findViewById(R.id.buttonRegister1)
 
-        button.setOnClickListener{
+        button2.setOnClickListener{
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
 
-        buttonRegister.setOnClickListener{
-            val intent = Intent(this, RegisterActivity::class.java)
+        buttonRegister2.setOnClickListener{
+            val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
     }

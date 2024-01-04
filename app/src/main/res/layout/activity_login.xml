@@ -24,28 +24,25 @@
         android:hint="Password" />
 
     <Button
-        android:id="@+id/buttonLogin"
+        android:id="@+id/buttonLogin0"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/editTextPassword"
         android:layout_marginTop="16dp"
-        android:text="Login" />
+        android:textColor="@color/white"
+        android:text="Login"
+        android:background="@color/color_2"/>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/buttonLogin"
-        android:layout_marginTop="16dp"
-        android:text="Don't have an account?"
-        android:textAlignment="center" />
 
     <Button
-        android:id="@+id/buttonRegister"
+        android:id="@+id/buttonRegister0"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/buttonLogin"
+        android:layout_below="@id/buttonLogin0"
         android:layout_marginTop="8dp"
+        android:textColor="@color/white"
         android:text="Register"
+        android:background="@color/color_2"
         android:textStyle="bold" />
 
 </RelativeLayout>
