@@ -114,13 +114,13 @@ class MasjidActivity : AppCompatActivity(), OnMapReadyCallback {
                         MarkerOptions()
                             .position(masjidNurulIslam)
                             .title("Masjid Nurul Islam")
-                            .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE))
+                            .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_CYAN))
                     )
                     val masjidAlAmin = LatLng(-7.746304, 110.354728)
                     mMap.addMarker(
                         MarkerOptions()
-                            .position(masjidNurulIslam)
-                            .title("Masjid Nurul Islam")
+                            .position(masjidAlAmin)
+                            .title("Masjid Al-Amin")
                             .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE))
                     )
                 }
