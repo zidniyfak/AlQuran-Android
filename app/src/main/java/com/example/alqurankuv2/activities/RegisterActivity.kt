@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.TextView
 import com.example.alqurankuv2.R
 
 class RegisterActivity : AppCompatActivity() {
@@ -11,7 +12,7 @@ class RegisterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
-        val button2: Button = findViewById(R.id.buttonLogin1)
+        val button2: TextView = findViewById(R.id.loginhaveaccount)
         val buttonRegister2: Button = findViewById(R.id.buttonRegister1)
 
         button2.setOnClickListener{
