@@ -18,7 +18,7 @@ class SplashScreenActivity : AppCompatActivity() {
 //        supportActionBar?.hide() -> untuk menghilangkan Action Bar
 
         Handler().postDelayed({
-            startActivity(Intent(this,MainActivity::class.java))
+            startActivity(Intent(this,LoginActivity::class.java))
             finish()
         },3000)
     }
