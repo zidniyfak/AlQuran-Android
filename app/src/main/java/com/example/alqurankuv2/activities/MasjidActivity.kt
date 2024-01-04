@@ -88,12 +88,39 @@ class MasjidActivity : AppCompatActivity(), OnMapReadyCallback {
                     mMap.addMarker(MarkerOptions().position(currentLatLng).title("My Location"))
                     mMap.moveCamera(CameraUpdateFactory.newLatLng(currentLatLng))
 
-                    // Tambahkan marker untuk suatu tempat
-                    val destinationLatLng = LatLng(-7.748512, 110.354937) // Ganti dengan koordinat tempat tujuan
+                    val masjidKampus1UTY = LatLng(-7.748512, 110.354937)
                     mMap.addMarker(
                         MarkerOptions()
-                            .position(destinationLatLng)
+                            .position(masjidKampus1UTY)
                             .title("Masjid Kampus 1 UTY")
+                            .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE))
+                    )
+                    val masjidAlHikmahKronggahan = LatLng(-7.740461, 110.351720)
+                    mMap.addMarker(
+                        MarkerOptions()
+                            .position(masjidAlHikmahKronggahan)
+                            .title("Masjid Al-Hikmah Kronggahan")
+                            .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE))
+                    )
+                    val masjidAlIkhlas = LatLng(-7.749451, 110.353101)
+                    mMap.addMarker(
+                        MarkerOptions()
+                            .position(masjidAlIkhlas)
+                            .title("Masjid Al-Ikhlas")
+                            .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE))
+                    )
+                    val masjidNurulIslam = LatLng(-7.753044, 110.355429)
+                    mMap.addMarker(
+                        MarkerOptions()
+                            .position(masjidNurulIslam)
+                            .title("Masjid Nurul Islam")
+                            .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE))
+                    )
+                    val masjidAlAmin = LatLng(-7.746304, 110.354728)
+                    mMap.addMarker(
+                        MarkerOptions()
+                            .position(masjidNurulIslam)
+                            .title("Masjid Nurul Islam")
                             .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE))
                     )
                 }
